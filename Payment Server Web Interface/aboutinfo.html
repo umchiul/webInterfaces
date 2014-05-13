@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>User Portal | About Us</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+
+<link rel="stylesheet" href="https://googledrive.com/host/0ByOLZie_svG3dFQ3RmtRSlJUOXM/" type="text/css" media="screen">
+<link rel="stylesheet" href="https://googledrive.com/host/0ByOLZie_svG3NDc2cmFaOGQ5eWs/" type="text/css" media="screen">
+<link rel="stylesheet" href="https://googledrive.com/host/0ByOLZie_svG3TmFpYzlEaWFDTms/" type="text/css" media="screen">
+
+<script src="https://googledrive.com/host/0ByOLZie_svG3cm1wMWxnSUNTMk0/" type="text/javascript"></script>
+<script src="https://googledrive.com/host/0ByOLZie_svG3U3hIZlFhS180Q00/" type="text/javascript"></script>
+<script src="https://googledrive.com/host/0ByOLZie_svG3SU41dlJ6aUVuM00/" type="text/javascript"></script>
+<script src="https://googledrive.com/host/0ByOLZie_svG3ejdnTjVBTktBUWM/" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<![endif]-->
+
+<style type="text/css">
+.auto-style1 {
+	background-repeat: repeat;
+	background-position-y: 0%;
+}
+</style>
+</head>
+<body id="page4">
+<div class="main-bg">
+  <div class="bg">
+    <!--==============================header=================================-->
+    <header>
+      <div class="main">
+        <div class="wrapper">
+          <h1><a href="#">User Portal</a></h1>
+        </div>
+      </div>
+    </header>
+    <!--==============================content================================-->
+    <section id="content">
+      <div class="main">
+        <div class="container_12">
+          <div class="container-bot">
+            <div class="container-top">
+              <div class="container">
+                <div class="wrapper">
+                  <article class="grid_8">
+                    <div class="indent-left">
+                      <h3><span lang="en-ca">Our Product</span></h3>
+                      <h6>In developing markets and regions, which are 
+					  predominantly cash based, regular credit/debit cards are 
+					  not widely used by customers to make purchases at retail 
+					  points-of-sale. This is greatly due to the fact that, 
+					  merchants in these regions are reluctant to pay relatively 
+					  high transaction fees for conventional debit and credit 
+					  payment solutions such as VISA and MasterCard. Also, 
+					  credit and debit cards have the disadvantage of being 
+					  likely to be misplaced or stolen. Hence, a need for an 
+					  alternative payment solution that significantly minimizes 
+					  the merchant’s cost. The end-product of this project is an 
+					  alternative to current card-based retail payment solutions 
+					  that leverages Peer-to-Peer Near Field Communication (NFC) 
+					  technology to facilitate cashless retail sales. This 
+					  design eliminates the need for conventional debit and 
+					  credit cards, and their associated risks, and is likely to 
+					  be accepted in developing regions, as subscribed customers 
+					  will only need to have an NFC capable mobile phone at hand 
+					  to make a retail purchase. </h6>
+						<p>&nbsp;</p>
+                      <h6><span lang="en-ca">C</span>omplete retail payment 
+					  solution with hardware and software components<span lang="en-ca">:</span></h6>
+                      <p><span lang="en-ca">Low</span> subscription costs<span lang="en-ca"> 
+					  for merchants</span><br><span lang="en-ca">Free for users</span><br>
+					  Cardless payment solution</p>
+					  </div>
+                  </article>
+                  <article class="grid_4">
+                    <div class="indent-left2">
+                      <h3><span lang="en-ca">Contact Information</span></h3>
+                      <ul class="list-2 p1">
+                          <li><span lang="en-ca">Address: 
+						  <span class="auto-style1">University Crescent</span></span></li>
+                        <li><span lang="en-ca">Postal Code: R2R 2P1</span></li>
+                        <li><span lang="en-ca">Telephone: 204-123-4567</span></li>
+                      </ul>
+                        <span lang="en-ca">
+                        </span> &nbsp;</div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--==============================footer=================================-->
+    <footer>
+    <div class="main">          </div>
+	</footer>
+  </div>
+</div>
+
+<script>
+		$(document).ready(function(){
+	        var messageType = "3";
+			var cookie_name = "username";
+			var cookie_name2 = "password";
+			var YouWrote = getName(cookie_name);
+			var YouWrote2 = getName2(cookie_name2);
+			var userName = YouWrote;
+			var password = YouWrote2;
+	        auth(messageType, userName, password);
+
+	        $("#logout").click(function () {
+            window.open("https://paymentserver.dynu.com/", "_self");
+          	});
+
+	    });
+
+
+		$.ajaxSetup({
+		        contentType: "application/json; charset=utf-8",
+		        dataType: "json"
+		});
+
+
+	    function auth(messageType, userName, password) {
+	        $.ajax
+	        ({
+	            type: "POST",
+	            //SEND TO SERVER URL
+	            url: "https://paymentserver.dynu.com:443/",
+	            dataType: 'json',
+	            async: false,
+	            data: '{"messageType": {"code": -1, "request": false, "response": false, "details": ""}, "customer": {"custUsername": "' + userName + '", "custPWD": "' + password + '"}',
+
+	            error: function (xhr, error) {
+	               alert('Error: Please Login!');
+	            },
+
+	            success: function (data, textStatus, jqXHR) {
+	                
+	                }
+	        })
+	    }
+
+
+		function getName(cookie_name) {
+			if(document.cookie)
+			{
+			index = document.cookie.indexOf(cookie_name);
+			if (index != -1)
+			{
+			namestart = (document.cookie.indexOf("=", index) + 1);
+			nameend = document.cookie.indexOf(";", index);
+			if (nameend == -1) {nameend = document.cookie.length;}
+			YouWrote = document.cookie.substring(namestart, nameend);
+			return YouWrote;
+		}}}
+
+		function getName2(cookie_name2) {
+			if(document.cookie)
+			{
+			index = document.cookie.indexOf(cookie_name2);
+			if (index != -1)
+			{
+
+			namestart = (document.cookie.indexOf("=", index) + 1);
+			nameend = document.cookie.indexOf(";", index);
+			if (nameend == -1) {nameend = document.cookie.length;}
+			YouWrote2 = document.cookie.substring(namestart, nameend);
+			return YouWrote2;
+		}}}
+
+</script>
+
+
+
+</body>
+</html>

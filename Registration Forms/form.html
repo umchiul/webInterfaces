@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>User Portal | Subscription Form</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+
+<link rel="stylesheet" href="https://googledrive.com/host/0ByOLZie_svG3dFQ3RmtRSlJUOXM/" type="text/css" media="screen">
+<link rel="stylesheet" href="https://googledrive.com/host/0ByOLZie_svG3NDc2cmFaOGQ5eWs/" type="text/css" media="screen">
+
+<!--[if lt IE 9]>
+<![endif]-->
+
+<style media="screen" type="text/css">
+h2 {text-align:center; font: bold 26.5px calibri,sans-serif; margin-right:450px; color:white}
+
+h5 {
+        font: 16px calibri,sans-serif; text-align:center; 
+    }
+
+
+</style>
+</head>
+<body id="page4">
+<div class="main-bg">
+  <div class="bg">
+    <!--==============================header=================================-->
+    <header>
+      <div class="main">
+        <div class="wrapper">
+        </div>
+      </div>
+    </header>
+    <!--==============================content================================-->
+    <!--==============================footer=================================-->
+    <footer>
+    <div class="main">          
+    <h2 style="width: 957px">Payment Solution | Subscription Form</h2>
+<form id="form">
+<input id="hidden" type="hidden" name="messageType.code" value="1">
+<input id="hidden" type="hidden" name="messageType.request" value="false">
+<input id="hidden" type="hidden" name="messageType.response" value="false">
+<input id="hidden" type="hidden" name="messageType.details" value="">
+
+<h5>Section 1 | Account Information</h5>
+<select id="dropdown">
+    <option>Select  Account  Type</option>
+    <option value="cl">Client</option>
+    <option value="me">Merchant</option>
+</select>
+<input id="Text1" type="hidden" name="user.userType" placeholder="Account Type" value=""/>
+<input id="messageType5" type="hidden" name="user.receiveCommunication" value="false">
+<br>
+<input id="BCode" type="text" name="user.account.bankCode" placeholder="Bank code*"/>
+<br>
+<input id="Accountnum" type="text" name="user.account.accountNum" placeholder="Account number"/>
+<br><input id="Accountpw" type="text" name="user.account.accountPWD" placeholder="Account password"/>
+<input id="hidden" type="hidden" name="user.hardwareInfo.POSHWID" value="-1">
+<br>
+<input id="usern" type="text" name="user.userID.username" placeholder="Create Username"/>
+<br>
+<input type="text" name="user.userID.password" placeholder="Create Password"/>
+<br class ="small"><br class ="small">
+<h5>Section 2 | Personal Information</h5>
+<input type="text" name="user.personalInfo.firstName" placeholder="First Name"/>
+<br>
+<input type="text" name="user.personalInfo.middleName" placeholder="Middle Name"/>
+<br>
+<input type="text" name="user.personalInfo.lastName" placeholder="Last Name"/>
+<br>
+<input type="text" name="user.personalInfo.email" placeholder="Enter Email Address"/>
+<br>
+<input type="text" name="user.personalInfo.dateOfBirth.DOBDay" placeholder="Day of Birth"/>
+<br>
+<input type="text" name="user.personalInfo.dateOfBirth.DOBMonth" placeholder="Month of Birth"/>
+<br>
+<input type="text" name="user.personalInfo.dateOfBirth.DOBYear" placeholder="Year of Birth"/>
+<br>
+<input id="Accountpw" type="text" name="user.personalInfo.occupation" placeholder="Occupation"/>
+<input id="hidden" type="hidden" name="user.personalInfo.SIN" value="-1">
+<br class ="small"><br class ="small">
+<h5>Section 3 | Location Information</h5>
+<input type="text" name="user.personalInfo.address1" placeholder="Address 1"/>
+<br>
+<input type="text" name="user.personalInfo.address2" placeholder="Address 2"/>
+<br>
+<input type="text" name="user.personalInfo.city" placeholder="City"/>
+<br>
+<input type="text" name="user.personalInfo.province" placeholder="Province"/>
+<br>
+<input type="text" name="user.personalInfo.country" placeholder="Country"/>
+<br>
+<input type="text" name="user.personalInfo.postalCode" placeholder="Postal Code"/>
+<br><input type="text" name="user.personalInfo.phoneNumber" placeholder="Phone Number"/>
+
+
+
+<br class ="small">
+<p class ="fineprint"><font color="grey"; font size ="2"; FONT FACE="arial";>By clicking Sign Up, you agree to receive communications from us about products, services and promotions. We will not share your information with other parties without your permission.</font></p>
+</form>
+
+<form method="post"><input id="input" type="submit" name="submit" value="Sign Up"/>
+</form>
+
+    
+    </div>
+	</footer>
+  </div>
+</div>
+
+<script>
+    var mytextbox = document.getElementById('Text1');
+    var mydropdown = document.getElementById('dropdown');
+
+    mydropdown.onchange = function () {
+        mytextbox.value = this.value;
+    }
+
+    $.fn.formToJSON = function () {
+        var objectGraph = {};
+        function add(objectGraph, name, value) {
+            if (name.length == 1) {
+                objectGraph[name[0]] = value;
+            }
+            else {
+                if (objectGraph[name[0]] == null) {
+                    objectGraph[name[0]] = {};
+                }
+                add(objectGraph[name[0]], name.slice(1), value);
+            }
+        };
+
+        $(this).children('input, textarea').each(function () {
+            if ($(this).attr('name') != 'submit') {
+                add(objectGraph, $(this).attr('name').split('.'), $(this).val());
+            }
+        });
+        return JSON.stringify(objectGraph);
+    };
+
+    $.ajaxSetup({
+        contentType: "application/json; charset=utf-8",
+        dataType: "json"
+    });
+
+    $(document).ready(function () {
+        $('#input').click(function () {
+
+            alert($("#form").formToJSON());				//<----------------- USED TO SHOW THE JSON POST, UNCOMMENT IF WANT TO SEE!
+
+            var send = $("#form").formToJSON();
+            $.ajax({
+                url: "https://paymentserver.dynu.com:443/",        //*****ENTER URL OF BANK SERVER HERE*****
+                type: "POST",
+                data: send,
+                error: function (xhr, error) {
+                    alert("Error! Account was not created.");
+                },
+
+			success: function(data){
+                    alert("Account Created: Verification email has been sent!");
+                    window.open("https://paymentserver.dynu.com/", "_self");             
+			}
+
+
+            });
+            return false;
+        });
+    });
+</script>
+
+
+</body>
+</html>

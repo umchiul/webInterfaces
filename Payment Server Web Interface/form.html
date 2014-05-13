@@ -1,0 +1,254 @@
+<html>
+
+<head>
+<title>Payment Solution | Subscription Form</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<style media="screen" type="text/css">
+h2 {text-align:center; font: bold 26.5px calibri,sans-serif; background-image: -moz-linear-gradient(top left, #4059FF 0%, #0EBBEF 100%);
+    margin-right:450px; margin-left:450px; color:white}
+
+h1 {
+        font: 16px calibri,sans-serif; text-align:center; font-style: oblique;
+
+    }
+
+br.small {
+line-height: 4px;
+}
+body {text-align:center;}
+textarea#styleid{
+color:#666;
+font-size:14px;
+-moz-border-radius: 8px; -webkit-border-radius: 8px;
+margin:5px 0px 10px 0px;
+padding:10px;
+height:75px;
+width:350px;
+border:#999 1px solid;
+font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+transition: all 0.25s ease-in-out;
+-webkit-transition: all 0.25s ease-in-out;
+-moz-transition: all 0.25s ease-in-out;
+box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+-webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+-moz-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+}
+
+input, textarea {   
+	padding: 9px;  
+	border: solid 1px #E5E5E5;  
+	outline: 0;  
+	font: normal 13px/100% Verdana, Tahoma, sans-serif;  
+	width: 200px;  
+	background: #FFFFFF url('bg_form.png') left top repeat-x;  
+	background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));  
+	background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px);  
+	box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;  
+	-moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;  
+	-webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;  
+
+}
+
+textarea {  
+
+
+}
+
+input {
+    border: 3px solid #c4c4c4; 
+    font-size: 16px;
+    padding: 4px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    box-shadow: 0px 0px 8px #d9d9d9;
+    -moz-box-shadow: 0px 0px 8px #d9d9d9;
+    -webkit-box-shadow: 0px 0px 8px #d9d9d9;
+}
+
+input:focus { 
+    outline: none;
+    border: 3px solid #7bc1f7;
+    box-shadow: 0px 0px 8px #7bc1f7;
+    -moz-box-shadow: 0px 0px 8px #7bc1f7;
+    -webkit-box-shadow: 0px 0px 8px #7bc1f7;
+
+}
+
+.glowing-border {
+    border: 3px solid #dadada;
+    border-radius: 7px;
+
+}
+
+.glowing-border:focus { 
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+
+#form {
+border-style:solid;
+border-width:1px;
+border-color:#9ecaed;
+margin-right:450px;
+margin-left:450px;	
+
+background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0, #F0FFFD),
+	color-stop(1, #FFFFFF)
+);
+background-image: -o-linear-gradient(bottom, #F0FFFD 0%, #FFFFFF 100%);
+background-image: -moz-linear-gradient(bottom, #F0FFFD 0%, #FFFFFF 100%);
+background-image: -webkit-linear-gradient(bottom, #F0FFFD 0%, #FFFFFF 100%);
+background-image: -ms-linear-gradient(bottom, #F0FFFD 0%, #FFFFFF 100%);
+background-image: linear-gradient(to bottom, #F0FFFD 0%, #FFFFFF 100%);
+}
+
+#dropdown{
+	background: #FFFFFF url('bg_form.png') left top repeat-x;  
+	background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));  
+	background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px);  
+	box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;  
+	-moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;  
+	-webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;  
+
+}
+
+</style>
+</head>
+
+<body>
+<h2>Payment Solution | Subscription Form</h2>
+<form id="form">
+<input id="hidden" type="hidden" name="messageType.code" value="1">
+<input id="hidden" type="hidden" name="messageType.request" value="false">
+<input id="hidden" type="hidden" name="messageType.response" value="false">
+<input id="hidden" type="hidden" name="messageType.details" value="">
+
+<h1>Section 1 | Account Information</h1>
+<select id="dropdown">
+    <option>Select  Account  Type</option>
+    <option value="cl">Client</option>
+    <option value="me">Merchant</option>
+</select><br>
+<input id="Text1" type="hidden" name="user.userType" placeholder="Account Type" value=""/>
+<input id="messageType5" type="hidden" name="user.receiveCommunication" value="false">
+<br class ="small"><br class ="small">
+<input id="BCode" type="text" name="user.account.bankCode" placeholder="Bank code*"/>
+<br class ="small"><br class ="small">
+<input id="Accountnum" type="text" name="user.account.accountNum" placeholder="Account number"/>
+<br class ="small"><br class ="small">
+<input id="Accountpw" type="text" name="user.account.accountPWD" placeholder="Account password"/>
+<input id="hidden" type="hidden" name="user.hardwareInfo.POSHWID" value="-1">
+<br class ="small"><br class ="small">
+<input id="usern" type="text" name="user.userID.username" placeholder="Create Username"/>
+<br class ="small"><br class ="small">
+<input type="text" name="user.userID.password" placeholder="Create Password"/>
+<h1>Section 2 | Personal Information</h1>
+<input type="text" name="user.personalInfo.firstName" placeholder="First Name"/>
+<br class ="small"><br class ="small">
+<input type="text" name="user.personalInfo.middleName" placeholder="Middle Name"/>
+<br class ="small"><br class ="small">
+<input type="text" name="user.personalInfo.lastName" placeholder="Last Name"/>
+<br class ="small"><br class ="small">
+<input type="text" name="user.personalInfo.email" placeholder="Enter Email Address"/>
+<br class ="small"><br class ="small">
+<input type="text" name="user.personalInfo.dateOfBirth.DOBDay" placeholder="Day of Birth"/>
+<br class ="small"><br class ="small">
+<input type="text" name="user.personalInfo.dateOfBirth.DOBMonth" placeholder="Month of Birth"/>
+<br class ="small"><br class ="small">
+<input type="text" name="user.personalInfo.dateOfBirth.DOBYear" placeholder="Year of Birth"/>
+<br class ="small"><br class ="small">
+<input id="Accountpw" type="text" name="user.personalInfo.occupation" placeholder="Occupation"/>
+<input id="hidden" type="hidden" name="user.personalInfo.SIN" value="-1">
+<h1>Section 3 | Location Information</h1>
+<input type="text" name="user.personalInfo.address1" placeholder="Address 1"/>
+<br class ="small"><br class ="small">
+<input type="text" name="user.personalInfo.address2" placeholder="Address 2"/>
+<br class ="small"><br class ="small">
+<input type="text" name="user.personalInfo.city" placeholder="City"/>
+<br class ="small"><br class ="small">
+<input type="text" name="user.personalInfo.province" placeholder="Province"/>
+<br class ="small"><br class ="small">
+<input type="text" name="user.personalInfo.country" placeholder="Country"/>
+<br class ="small"><br class ="small">
+<input type="text" name="user.personalInfo.postalCode" placeholder="Postal Code"/>
+<br class ="small"><br class ="small">
+<input type="text" name="user.personalInfo.phoneNumber" placeholder="Phone Number"/>
+
+
+
+<br class ="small">
+<p class ="fineprint"><font color="grey"; font size ="2"; FONT FACE="arial";>By clicking Sign Up, you agree to receive communications from us about products, services and promotions. We will not share your information with other parties without your permission.</font></p>
+</form>
+
+<form method="post"><input id="input" type="submit" name="submit" value="Sign Up"/>
+</form>
+
+<script>
+    var mytextbox = document.getElementById('Text1');
+    var mydropdown = document.getElementById('dropdown');
+
+    mydropdown.onchange = function () {
+        mytextbox.value = this.value;
+    }
+
+    $.fn.formToJSON = function () {
+        var objectGraph = {};
+        function add(objectGraph, name, value) {
+            if (name.length == 1) {
+                objectGraph[name[0]] = value;
+            }
+            else {
+                if (objectGraph[name[0]] == null) {
+                    objectGraph[name[0]] = {};
+                }
+                add(objectGraph[name[0]], name.slice(1), value);
+            }
+        };
+
+        $(this).children('input, textarea').each(function () {
+            if ($(this).attr('name') != 'submit') {
+                add(objectGraph, $(this).attr('name').split('.'), $(this).val());
+            }
+        });
+        return JSON.stringify(objectGraph);
+    };
+
+    $.ajaxSetup({
+        contentType: "application/json; charset=utf-8",
+        dataType: "json"
+    });
+
+    $(document).ready(function () {
+        $('#input').click(function () {
+
+            alert($("#form").formToJSON());				//<----------------- USED TO SHOW THE JSON POST, UNCOMMENT IF WANT TO SEE!
+
+            var send = $("#form").formToJSON();
+            $.ajax({
+                url: "https://paymentserver.dynu.com:443/",        //*****ENTER URL OF BANK SERVER HERE*****
+                type: "POST",
+                data: send,
+                error: function (xhr, error) {
+                    alert("Error! Account was not created.");
+                },
+
+			success: function(data){
+                    alert("Account Created: Verification email has been sent!");
+                    window.open("https://paymentserver.dynu.com/", "_self");             
+			}
+
+
+            });
+            return false;
+        });
+    });
+</script>
+</body>
+</html>

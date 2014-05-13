@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>User Portal | Transaction History</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+
+<link rel="stylesheet" href="https://googledrive.com/host/0ByOLZie_svG3dFQ3RmtRSlJUOXM/" type="text/css" media="screen">
+<link rel="stylesheet" href="https://googledrive.com/host/0ByOLZie_svG3NDc2cmFaOGQ5eWs/" type="text/css" media="screen">
+<link rel="stylesheet" href="https://googledrive.com/host/0ByOLZie_svG3TmFpYzlEaWFDTms/" type="text/css" media="screen">
+
+<script src="https://googledrive.com/host/0ByOLZie_svG3cm1wMWxnSUNTMk0/" type="text/javascript"></script>
+<script src="https://googledrive.com/host/0ByOLZie_svG3U3hIZlFhS180Q00/" type="text/javascript"></script>
+<script src="https://googledrive.com/host/0ByOLZie_svG3SU41dlJ6aUVuM00/" type="text/javascript"></script>
+<script src="https://googledrive.com/host/0ByOLZie_svG3ejdnTjVBTktBUWM/" type="text/javascript"></script>
+
+<!--[if lt IE 9]>
+<script type="text/javascript" src="https://googledrive.com/host/0ByOLZie_svG3b0kxRWpJNlZqRVk/"></script>
+<![endif]-->
+
+
+<style media="screen" type="text/css">
+#response5{
+	color: gray;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 22px;
+}
+#response6{
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 13px;
+	color: orange;
+	word-wrap:break-word;
+}
+
+</style>
+
+</head>
+<body id="page3">
+<div class="main-bg">
+  <div class="bg">
+    <!--==============================header=================================-->
+    <header>
+      <div class="main">
+        <div class="wrapper">
+          <h1><a href="#">User Portal</a></h1>
+          <div class="fright">
+            <div class="indent"> 
+            
+			<INPUT TYPE="submit" id="logout" name="logout" Value="Log Out" style="width: 202px; height: 60px;" class="auto-style2">
+            
+            </div>
+          </div>
+        </div>
+        <nav>
+          <ul class="menu">
+			<li><a>Home</a></li>
+            <li><a href="https://paymentserver.dynu.com/personal.html">Personal Information</a></li>
+            <li><a class="active" href="https://paymentserver.dynu.com/transactions.html">Transactions </a></li>
+            <li><a href="https://paymentserver.dynu.com/about.html">About Us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!--==============================content================================-->
+    <section id="content">
+      <div class="main">
+        <div class="container_12">
+          
+          <div class="container-bot">
+            <div class="container-top">
+              <div class="container" style="height: 560px">
+                <div class="wrapper">
+				<div id="response5" style="height: 40px; left: 270px; top: 283px; width: 600px;"></div>
+				<div id="response6" style="height: 300px; left: 270px; top: 283px; width: 600px;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--==============================footer=================================-->
+    <footer>
+      <div class="main"> </div>
+    </footer>
+  </div>
+</div>
+
+
+
+<script>
+		$(document).ready(function(){
+	        var messageType = "3";
+			var cookie_name = "username";
+			var cookie_name2 = "password";
+			var YouWrote = getName(cookie_name);
+			var YouWrote2 = getName2(cookie_name2);
+			var userName = YouWrote;
+			var password = YouWrote2;
+	        auth(messageType, userName, password);
+
+	        $("#logout").click(function () {
+            window.open("https://paymentserver.dynu.com/", "_self");
+          	});
+
+	    });
+
+
+		$.ajaxSetup({
+		        contentType: "application/json; charset=utf-8",
+		        dataType: "json"
+		});
+
+
+	    function auth(messageType, userName, password) {
+	        $.ajax
+	        ({
+	            type: "POST",
+	            //SEND TO SERVER URL
+	            url: "https://paymentserver.dynu.com:443/",
+	            dataType: 'json',
+	            async: false,
+	            data: '{"messageType": {"code": 0, "request": false, "response": false, "details": ""}, "customer": {"custUsername": "' + userName + '", "custPWD": "' + password + '"}}',
+
+	            error: function (xhr, error) {
+	               alert('Error: Please Login!');
+	            },
+
+	            success: function (data, textStatus, jqXHR) {
+	            	$('#response5').html('TRANSACTION HISTORY');
+	            	$('#response6').html('' + data.user.transactionHistory);
+	            	
+	                
+	                
+	             }
+	        })
+	    }
+
+
+		function getName(cookie_name) {
+			if(document.cookie)
+			{
+			index = document.cookie.indexOf(cookie_name);
+			if (index != -1)
+			{
+			namestart = (document.cookie.indexOf("=", index) + 1);
+			nameend = document.cookie.indexOf(";", index);
+			if (nameend == -1) {nameend = document.cookie.length;}
+			YouWrote = document.cookie.substring(namestart, nameend);
+			return YouWrote;
+		}}}
+
+		function getName2(cookie_name2) {
+			if(document.cookie)
+			{
+			index = document.cookie.indexOf(cookie_name2);
+			if (index != -1)
+			{
+
+			namestart = (document.cookie.indexOf("=", index) + 1);
+			nameend = document.cookie.indexOf(";", index);
+			if (nameend == -1) {nameend = document.cookie.length;}
+			YouWrote2 = document.cookie.substring(namestart, nameend);
+			return YouWrote2;
+		}}}
+
+</script>
+
+
+</body>
+</html>
